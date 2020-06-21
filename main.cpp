@@ -1,13 +1,13 @@
 #include <iostream>
 #include <fstream>
-
-using namespace std;
+#include "vec3d.h"
 
 int main (){
-    ofstream outputToFile;
+    std::ofstream outputToFile;
     outputToFile.open("helloGraphics.ppm");
     int nx = 2000;
     int ny = 1000;
+    vec3d myVec = vec3d();
 
     outputToFile << "P3\n" << nx << " " << ny << "\n255\n";
     for(int j = ny-1; j >= 0; j--){
@@ -18,9 +18,8 @@ int main (){
             int ir = int(255.99*r);
             int ig = int(255.99*g);
             int ib = int(255.99*b);
-            outputToFile << ir << " " << ig << " " << ib << endl;
+            outputToFile << ir << " " << ig << " " << ib << std::endl;
         }
     }
     outputToFile.close();
-    return 0;
 }
